@@ -4,8 +4,8 @@ class User < ApplicationRecord
 
   def as_json(options={})
   super(only: [:name],
-    methods: [:tasks_count] && [:orders_count],
-    include: [tasks: { only: :name }] && [orders: { only: :name }]
+    methods: [:tasks_count, :orders_count],
+    include: [tasks: { only: :name }, orders: { only: :name }]
     )
   end
 
